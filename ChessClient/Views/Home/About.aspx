@@ -7,6 +7,7 @@
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>About</h2>
     <p>
+	Корчевский Павел
         Пробная версия сайта для команды 1.
     </p>
 </asp:Content>
