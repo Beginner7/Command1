@@ -7,7 +7,7 @@
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>About</h2>
     <p>
-	Корчевский Павел
+	Корчевский Павел много раз
     </p>
     <p>
         Дунаев Дмитрий
