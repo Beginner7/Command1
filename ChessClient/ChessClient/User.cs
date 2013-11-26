@@ -15,7 +15,11 @@ namespace ChessClient
 
         public List<Game> GetOpenGamesList()
         {
+            // Запрос к серверу возвращает список всех игр
+            // Можно сделать так, чтобы сразу возвращался список
+            // открытых игр
             List<Game> serverResponse = new List<Game>(n);
+            
             return from game in serverResponse 
                 where game.FirstPlayerId == this.Id && game.finished == false 
                 select game;
@@ -23,14 +27,21 @@ namespace ChessClient
 
         public List<Game> GetInterruptedGamesList()
         {
+            // Запрос к серверу возвращает список всех игр
+            // Можно сделать так, чтобы сразу возвращался список
+            // прерванных игр
             List<Game> serverResponse = new List<Game>(n);
+
             return from game in serverResponse
-                   where game.SecondPlayerId == this.Id && game.finished == false
-                   select game;
+                where game.SecondPlayerId == this.Id && game.finished == false
+                select game;
         }
 
         public Game CreateGame(Color color)
         {
+            // Отправляется запрос к серверу на создание в базе
+            // новой записи Party/Game с исходными значениями 
+            // некоторых полей (FirstPlayerId и color)
             return new Game(this, 0000);
         }
 
