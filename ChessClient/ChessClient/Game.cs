@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChessClient
 {
-    class Game
+    public class Game
     {
         public Game(User firstPlayerUser, long id)
         {
-            this.Board = new ChessBoard();
+            //this.Board = new ChessBoard();
             this.FirstPlayer = firstPlayerUser;
             this.SecondPlayer = null;
             this.Id = id;
@@ -18,14 +18,15 @@ namespace ChessClient
 
         public bool MakeMove(string move)
         {
-            if (FirstPlayer.turn)
-            {
-                Board.CanMove(FirstPlayer, move);
-            }
-            else
-            {
-                Board.CanMove(SecondPlayer, move);
-            }
+            //if (FirstPlayer.turn)
+            //{
+            //    Board.CanMove(FirstPlayer, move);
+            //}
+            //else
+            //{
+            //    Board.CanMove(SecondPlayer, move);
+            //}
+            return true;
         }
 
         public void GiveUp(User Player)
@@ -35,7 +36,7 @@ namespace ChessClient
 
         
 
-        public ChessBoard Board { get; private set; }
+        //public ChessBoard Board { get; private set; }
         public User FirstPlayer { get; private set; }
         public User SecondPlayer { get; private set; }
         public long Id { get; private set; }

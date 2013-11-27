@@ -1,0 +1,5 @@
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClient\bin\Debug\ChessClient.dll
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClient\bin\Debug\ChessClient.pdb
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.csprojResolveAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.dll
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.pdb

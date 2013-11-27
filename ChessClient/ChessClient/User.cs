@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace ChessClient
 {
-    class User: IUser
+    public class User: IUser
     {
-        public User(long id)
+        public User(UInt64 id)
         {
             this.Id = id;
+        }
+
+        public User()
+        {
         }
 
         public List<Game> GetOpenGamesList()
@@ -18,11 +22,11 @@ namespace ChessClient
             // Запрос к серверу возвращает список всех игр
             // Можно сделать так, чтобы сразу возвращался список
             // открытых игр
-            List<Game> serverResponse = new List<Game>(n);
-            
-            return from game in serverResponse 
-                where game.FirstPlayerId == this.Id && game.finished == false 
-                select game;
+            List<Game> serverResponse = new List<Game>(10);
+            return serverResponse;
+            //return from game in serverResponse 
+            //    where game.FirstPlayerId == this.Id && game.finished == false 
+            //    select game;
         }
 
         public List<Game> GetInterruptedGamesList()
@@ -30,11 +34,11 @@ namespace ChessClient
             // Запрос к серверу возвращает список всех игр
             // Можно сделать так, чтобы сразу возвращался список
             // прерванных игр
-            List<Game> serverResponse = new List<Game>(n);
-
-            return from game in serverResponse
-                where game.SecondPlayerId == this.Id && game.finished == false
-                select game;
+            List<Game> serverResponse = new List<Game>(10);
+            return serverResponse;
+            //return from game in serverResponse
+            //    where game.SecondPlayerId == this.Id && game.finished == false
+            //    select game;
         }
 
         public Game CreateGame(Color color)
@@ -46,7 +50,9 @@ namespace ChessClient
         }
 
 
-        public long Id { get; private set; }
+        public UInt64 Id { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
         public enum Color
         {
             Black,

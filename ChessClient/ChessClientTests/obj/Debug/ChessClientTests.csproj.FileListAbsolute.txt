@@ -1,0 +1,7 @@
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\bin\Debug\ChessClientTests.dll
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\bin\Debug\ChessClientTests.pdb
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\bin\Debug\ChessClient.dll
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\bin\Debug\ChessClient.pdb
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\obj\Debug\ChessClientTests.csprojResolveAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\obj\Debug\ChessClientTests.dll
+C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessClientTests\obj\Debug\ChessClientTests.pdb

@@ -2,55 +2,61 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
+using WebApiServer.Models;
+using System.Web.Script.Serialization;
 
 namespace ChessClient
 {
-    class Server
+    public class Server
     {
         public Server(string address)
         {
-            IPHostEntry ipHost = Dns.GetHostEntry("localhost");
-            IPAddress ipAddr = ipHost.AddressList[0];
-            IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, 11000);
-
-            Connection = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            ServerAddress = new Uri(address);
+            Jss = new JavaScriptSerializer();
+            Encoder = new ASCIIEncoding();
+            Client = new HttpClient();
+            Client.BaseAddress = ServerAddress;
         }
 
         public User Login(string login, string psw)
         {
             // Запрос к базе данных для получения
             // id пользователя
-            Connection.Send(Json.JsonSend("login", login, psw));
-            var response = Connection.Receive(Json.JsonResponse("login"));
-            if (response != null)
+            UserLogInData usr = new UserLogInData{ Login = login, Password = psw};
+            HttpContent content = new ByteArrayContent(Encoder.GetBytes(Jss.Serialize(usr)));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = Client.PostAsync("api/user/", content).Result;
+            if (response.IsSuccessStatusCode)
             {
-                return response;
+                return new User(Jss.Deserialize<UInt64>(response.Content.ReadAsStringAsync().Result));
             }
-            else
-            {
-                Console.WriteLine("No such user or bad login/password");
-            }
+            
+            throw new Exception("No such user or bad login/password");
         }
 
         public User Register(string login, string psw)
         {
             // Запрос на создание новой записи в таблице Client
             // В случае успеха - автоматический логин пользователя
-            Connection.Send(Json.JsonSend("register", login, psw));
-            var response = Connection.Receive(Json.JsonResponse("register"));
-            if (response != null)
+            User usr = new User{ Id = 000, Login = login, Password = psw};
+            HttpContent content = new ByteArrayContent(Encoder.GetBytes(Jss.Serialize(usr)));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = Client.PutAsync("api/user/", content).Result;
+            if (response.IsSuccessStatusCode)
             {
-                return response;
+                return Jss.Deserialize<User>(response.Content.ReadAsStringAsync().Result);
             }
-            else
-            {
-                Console.WriteLine("Unable to create user");
-            }
+            throw new Exception("Unable to create user");
         }
 
-        public Socket Connection { get; private set; }
+        public ASCIIEncoding Encoder { get; private set; }
+        public JavaScriptSerializer Jss { get; private set; }
+        public HttpClient Client { get; private set; }
+        public Uri ServerAddress { get; private set; }
     }
 }
