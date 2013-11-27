@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ChessModel.Figure;
+using ChessModel.Figures;
 
 namespace ChessModel.Board
 {
     public class Cell
     {
-        public Cell(Figure.Figure figure)
+        public Cell(Figure figure)
         {
             Figure = figure;
         }
-        public Figure.Figure Figure { get; set; }
+        public Figure Figure { get; set; }
     }
 
     public class CellPosition
@@ -20,7 +20,7 @@ namespace ChessModel.Board
         public CellPosition(string position)
         {
             X = position[0] - 'a';
-            Y = (int) (position[1] - '1');
+            Y = (position[1] - '1');
             if (X < 0 || X > 7)
                 throw new ArgumentException("X вышел за пределы доски");
             if (Y < 0 || Y > 7)

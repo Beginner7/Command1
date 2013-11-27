@@ -5,3 +5,10 @@ c:\users\nikita\documents\visual studio 2013\Projects\ChessModel\ChessModel\bin\
 c:\users\nikita\documents\visual studio 2013\Projects\ChessModel\ChessModel\obj\Debug\ChessModel.csprojResolveAssemblyReference.cache
 c:\users\nikita\documents\visual studio 2013\Projects\ChessModel\ChessModel\obj\Debug\ChessModel.dll
 c:\users\nikita\documents\visual studio 2013\Projects\ChessModel\ChessModel\obj\Debug\ChessModel.pdb
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\bin\Debug\ChessModel.dll
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\bin\Debug\ChessModel.pdb
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\bin\Debug\nunit.framework.dll
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\bin\Debug\nunit.framework.xml
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\obj\Debug\ChessModel.csprojResolveAssemblyReference.cache
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\obj\Debug\ChessModel.dll
+C:\Users\Вячеслав\Documents\GitHub\Command1\ChessModel\ChessModel\obj\Debug\ChessModel.pdb

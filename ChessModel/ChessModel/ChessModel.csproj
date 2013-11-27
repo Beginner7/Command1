@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Board\Cell.cs" />
     <Compile Include="Board\ChessBoard.cs" />
-    <Compile Include="Figure\Figure.cs" />
+    <Compile Include="Figures\Figure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ChessBoardTest.cs" />
   </ItemGroup>

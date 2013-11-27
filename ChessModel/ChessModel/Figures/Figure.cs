@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ChessModel.Board;
 
-namespace ChessModel.Figure
+namespace ChessModel.Figures
 {
     public abstract class Figure
     {
@@ -22,7 +22,7 @@ namespace ChessModel.Figure
         private FigureColor color;
         public FigureColor GetColor { get { return color; } }
         private FigureType type;
-        public FigureType GetType { get { return type; }}
+        public FigureType GetFigureType { get { return type; }}
     }
 
     public class Pawn : Figure
@@ -113,4 +113,72 @@ namespace ChessModel.Figure
             return CanMove(move);
         }
     }
+
+    public class Officer : Figure
+    {
+        public Officer(FigureColor color) : base(color, FigureType.Officer) { }
+
+        public override bool CanMove(CellMove move)
+        {
+            int distanceX = Math.Abs(move.End.X - move.Begin.X);
+            int distanceY = Math.Abs(move.End.Y - move.Begin.Y);
+
+            if (distanceX != distanceY)
+                return false;
+            
+            return true;
+        }
+
+        public override bool CanKill(CellMove move)
+        {
+            return CanMove(move);
+        }
+    }
+
+    public class Queen : Figure
+    {
+        public Queen(FigureColor color) : base(color, FigureType.Queen) { }
+
+        public override bool CanMove(CellMove move)
+        {
+            int distanceX = Math.Abs(move.End.X - move.Begin.X);
+            int distanceY = Math.Abs(move.End.Y - move.Begin.Y);
+
+            if (distanceX == distanceY)
+                return true;
+
+            if (distanceX == 0 || distanceY == 0)
+                return true;
+
+            return false;
+        }
+
+        public override bool CanKill(CellMove move)
+        {
+            return CanMove(move);
+        }
+    }
+    
+    public class King : Figure
+    {
+        public King(FigureColor color) : base(color, FigureType.King) { }
+
+        public override bool CanMove(CellMove move)
+        {
+            int distanceX = Math.Abs(move.End.X - move.Begin.X);
+            int distanceY = Math.Abs(move.End.Y - move.Begin.Y);
+
+            if (distanceX > 1 || distanceY > 1)
+                return false;
+
+            return true;
+        }
+
+        public override bool CanKill(CellMove move)
+        {
+            return CanMove(move);
+        }
+    }
+
+
 }
