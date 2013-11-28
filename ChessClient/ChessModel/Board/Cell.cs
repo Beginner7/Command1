@@ -12,6 +12,11 @@ namespace ChessModel.Board
         {
             Figure = figure;
         }
+
+        public Cell()
+        {
+            // TODO: Complete member initialization
+        }
         public Figure Figure { get; set; }
     }
 

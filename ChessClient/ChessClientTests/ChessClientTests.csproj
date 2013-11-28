@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -48,7 +48,7 @@
     <Otherwise>
       <ItemGroup>
         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>True</Private>
+          <Private>False</Private>
         </Reference>
       </ItemGroup>
     </Otherwise>
@@ -61,6 +61,7 @@
     <ProjectReference Include="..\ChessClient\ChessClient.csproj">
       <Project>{e26709fa-55fa-4784-9fb3-d95adf442bae}</Project>
       <Name>ChessClient</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Choose>

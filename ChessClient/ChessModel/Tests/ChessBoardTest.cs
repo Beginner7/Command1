@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using ChessModel.Board;
 using ChessModel.Figures;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ChessModel.Tests
 {
-    [TestFixture]
-    class ChessBoardTest
+    [TestClass]
+    public class ChessBoardTest
     {
-        [Test]
+        [TestMethod]
         public void MovePawn()
         {
             Pawn p = new Pawn(Figures.Figure.FigureColor.White);
@@ -30,7 +30,7 @@ namespace ChessModel.Tests
 
         }
 
-        [Test]
+        [TestMethod]
         public void KillPawn()
         {
             Pawn p = new Pawn(Figures.Figure.FigureColor.White);
@@ -47,7 +47,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(false, pb.CanKill(new CellMove("b7-a8")));
         }
 
-        [Test]
+        [TestMethod]
         public void MoveAndKillCastle()
         {
             Castle c = new Castle(Figures.Figure.FigureColor.White);
@@ -59,7 +59,7 @@ namespace ChessModel.Tests
         }
 
 
-        [Test]
+        [TestMethod]
         public void MoveAndKillHorse()
         {
             Horse h = new Horse(Figures.Figure.FigureColor.White);
@@ -70,7 +70,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(false, h.CanKill(new CellMove("c1-c3")));
         }
 
-        [Test]
+        [TestMethod]
         public void OfficerKillMove()
         {
             Officer officer = new Officer(Figures.Figure.FigureColor.Black);
@@ -80,7 +80,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(true, officer.CanKill(new CellMove("a1-h8")));
             Assert.AreEqual(false, officer.CanKill(new CellMove("d4-d1")));
         }
-        [Test]
+        [TestMethod]
         public void QueenKillMove()
         {
             Queen queen = new Queen(Figures.Figure.FigureColor.White);
@@ -96,7 +96,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(true, queen.CanKill(new CellMove("d4-d1")));
         }
 
-        [Test]
+        [TestMethod]
         public void KingKillMove()
         {
             King king = new King(Figures.Figure.FigureColor.White);
@@ -108,7 +108,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(false, king.CanKill(new CellMove("e1-g1")));
         }
 
-        [Test]
+        [TestMethod]
         public void CellPosition()
         {
             CellPosition c = new CellPosition("e2");
@@ -119,7 +119,7 @@ namespace ChessModel.Tests
             Assert.AreEqual(c1.Y, 6);
         }
 
-        [Test]
+        [TestMethod]
         public void Pawn_e2_e4()
         {
             ChessBoard board = new ChessBoard();

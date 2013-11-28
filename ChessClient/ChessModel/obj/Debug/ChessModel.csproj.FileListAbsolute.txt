@@ -19,3 +19,8 @@ C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessModel\bin\Debug\n
 C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.csprojResolveAssemblyReference.cache
 C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.dll
 C:\Users\Павел\Documents\GitHub\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.pdb
+D:\Git\Command1\ChessClient\ChessModel\bin\Debug\ChessModel.dll
+D:\Git\Command1\ChessClient\ChessModel\bin\Debug\ChessModel.pdb
+D:\Git\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.csprojResolveAssemblyReference.cache
+D:\Git\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.dll
+D:\Git\Command1\ChessClient\ChessModel\obj\Debug\ChessModel.pdb
