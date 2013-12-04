@@ -16,10 +16,22 @@ namespace ChessClient
     {
         public Server(string address)
         {
+            
+            Client = new HttpClient();
+            Init(address);
+        }
+        public Server(string address, HttpClientHandler handler)
+        {
+
+
+            Client = new HttpClient(handler);
+            Init(address);
+        }
+        private void Init(string address)
+        {
             ServerAddress = new Uri(address);
             Jss = new JavaScriptSerializer();
             Encoder = new ASCIIEncoding();
-            Client = new HttpClient();
             Client.BaseAddress = ServerAddress;
         }
 
@@ -30,6 +42,7 @@ namespace ChessClient
             UserLogInData usr = new UserLogInData{ Login = login, Password = psw};
             HttpContent content = new ByteArrayContent(Encoder.GetBytes(Jss.Serialize(usr)));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            System.Net.ServicePointManager.Expect100Continue = false;
             var response = Client.PostAsync("api/user/", content).Result;
             if (response.IsSuccessStatusCode)
             {
@@ -46,6 +59,7 @@ namespace ChessClient
             User usr = new User{ Id = 000, Login = login, Password = psw};
             HttpContent content = new ByteArrayContent(Encoder.GetBytes(Jss.Serialize(usr)));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            System.Net.ServicePointManager.Expect100Continue = false;
             var response = Client.PutAsync("api/user/", content).Result;
             if (response.IsSuccessStatusCode)
             {

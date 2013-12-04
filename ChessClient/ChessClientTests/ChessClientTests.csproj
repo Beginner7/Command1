@@ -38,6 +38,7 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -61,7 +62,7 @@
     <ProjectReference Include="..\ChessClient\ChessClient.csproj">
       <Project>{e26709fa-55fa-4784-9fb3-d95adf442bae}</Project>
       <Name>ChessClient</Name>
-      <Private>False</Private>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Choose>

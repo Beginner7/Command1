@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessClient", "ChessClient\ChessClient.csproj", "{E26709FA-55FA-4784-9FB3-D95ADF442BAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessClientTests", "ChessClientTests\ChessClientTests.csproj", "{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}"
@@ -25,6 +23,7 @@ Global
 		{E26709FA-55FA-4784-9FB3-D95ADF442BAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E81A797D-FBBD-4E59-93DD-39BCAE06BC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4024DE90-F97E-4ED5-93CF-7F4E2D4D62DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,6 +32,7 @@ Global
 		{4024DE90-F97E-4ED5-93CF-7F4E2D4D62DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFA6E8F2-6082-4E78-BE68-DFA21E6DF29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFA6E8F2-6082-4E78-BE68-DFA21E6DF29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA6E8F2-6082-4E78-BE68-DFA21E6DF29B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{EFA6E8F2-6082-4E78-BE68-DFA21E6DF29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFA6E8F2-6082-4E78-BE68-DFA21E6DF29B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64D02F4B-6B0B-416D-B34F-7FF6842159B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
