@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Client]
+(
+	[id] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1) , 
+    [login] NVARCHAR(MAX) NOT NULL, 
+    [password] NVARCHAR(MAX) NOT NULL
+)
