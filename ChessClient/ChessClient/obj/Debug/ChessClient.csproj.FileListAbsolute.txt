@@ -8,3 +8,8 @@ D:\Git\Command1\ChessClient\ChessClient\bin\Debug\ChessClient.pdb
 D:\Git\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.csprojResolveAssemblyReference.cache
 D:\Git\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.dll
 D:\Git\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.pdb
+C:\Users\bumblebee\Documents\GitHub\Command1\ChessClient\ChessClient\bin\Debug\ChessClient.dll
+C:\Users\bumblebee\Documents\GitHub\Command1\ChessClient\ChessClient\bin\Debug\ChessClient.pdb
+C:\Users\bumblebee\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.csprojResolveAssemblyReference.cache
+C:\Users\bumblebee\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.dll
+C:\Users\bumblebee\Documents\GitHub\Command1\ChessClient\ChessClient\obj\Debug\ChessClient.pdb
