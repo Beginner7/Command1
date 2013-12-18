@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace ChessClientTests
 {
-    //[TestClass]
+    [TestClass]
     public class UnitTest1
     {
         //[TestMethod]
