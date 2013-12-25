@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using WebApiServer.Models;
 using WebApiServer.Not_MVC_code;
+using System.Data.SqlClient;
 
 namespace WebApiServer.Controllers
 {
@@ -20,9 +21,10 @@ namespace WebApiServer.Controllers
         [HttpPut]
         public HttpResponseMessage CreateUser([FromBody] User user)
         {
-            //TODO:implementation here
+            var result = DBRequest();
 
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user); ;
+            //return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user); ;
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(SqlDataReader), result);
         }
         [HttpPost]
         public HttpResponseMessage Login([FromBody] UserLogInData user)
@@ -38,5 +40,17 @@ namespace WebApiServer.Controllers
 
             return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), new User{Id=1,Login = "fg",Password = "rr"});
         }
+
+        private SqlDataReader DBRequest()
+        {
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM Client";
+            command.CommandTimeout = 20;
+            command.CommandType = System.Data.CommandType.Text;
+            return command.ExecuteReader();
+        }
+
+        private SqlConnection connection = new SqlConnection("Server=20a06137-e97e-4681-a96b-a28300d56ae5.sqlserver.sequelizer.com;Database=db20a06137e97e4681a96ba28300d56ae5;User ID=wpkumwollezvaiac;Password=Su6gQSHSsNJt4YGfF7ou7h76jteYWYYm8bmP2tvicPDYroEKJXscgNiKwa5wMR5B;");
     }
 }
