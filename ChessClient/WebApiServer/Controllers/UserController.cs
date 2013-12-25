@@ -24,7 +24,7 @@ namespace WebApiServer.Controllers
             var result = DBRequest();
 
             //return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user); ;
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(SqlDataReader), result);
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(string), result.ToString());
         }
         [HttpPost]
         public HttpResponseMessage Login([FromBody] UserLogInData user)
