@@ -11,6 +11,10 @@ namespace WebApiServer.Models
         public string Login { get; set; }
         public string Password { get; set; }
         private static readonly AppHarborDB Db=new AppHarborDB();
+        public User()
+        {
+            
+        }
         public void Create()
         {
             if(Db.Client.Any(p=>p.login==Login))

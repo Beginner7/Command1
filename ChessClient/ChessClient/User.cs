@@ -49,7 +49,6 @@ namespace ChessClient
             return new Game(this, 0000);
         }
 
-
         public Int64 Id { get; private set; }
         public string Login { get; set; }
         public string Password { get; set; }

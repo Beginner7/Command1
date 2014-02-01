@@ -20,7 +20,7 @@ namespace WebApiServer.Controllers
             return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User),Models.User.GetUserName(id));
         }
         [HttpPut]
-        public HttpResponseMessage CreateUser([FromBody] User user)
+        public HttpResponseMessage CreateUser([FromBody] Models.User user)
         {
             try
             {
