@@ -14,6 +14,7 @@ namespace WebApiServer.Not_MVC_code
     {
         public JsonHttpResponseMessage(HttpStatusCode responceStatusCode, Type responseDataType, object responseData)
         {
+            StatusCode = responceStatusCode;
             dynamic convertedResponceData = Convert.ChangeType(responseData, responseDataType);
             var jss = new JavaScriptSerializer();
             var encoder = new ASCIIEncoding();

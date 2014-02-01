@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище WebApiServer.Models" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище WebApiServerModelsContainer">
+          <EntitySet Name="Client" EntityType="Хранилище WebApiServer.Models.Client" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Party" EntityType="Хранилище WebApiServer.Models.Party" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Step" EntityType="Хранилище WebApiServer.Models.Step" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Party__client_ow__07F6335A" Association="Хранилище WebApiServer.Models.FK__Party__client_ow__07F6335A">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Party__client_pa__08EA5793" Association="Хранилище WebApiServer.Models.FK__Party__client_pa__08EA5793">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Party__victory_c__0AD2A005" Association="Хранилище WebApiServer.Models.FK__Party__victory_c__0AD2A005">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Step__party_id__108B795B" Association="Хранилище WebApiServer.Models.FK__Step__party_id__108B795B">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="Step" EntitySet="Step" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="client_owner" Type="bigint" Nullable="false" />
+          <Property Name="client_partner" Type="bigint" />
+          <Property Name="owner_color" Type="nchar" Nullable="false" MaxLength="5" />
+          <Property Name="victory_client" Type="bigint" />
+          <Property Name="is_finished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="start_cell" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="dest_cell" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="party_id" Type="bigint" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Party__client_ow__07F6335A">
+          <End Role="Client" Type="Хранилище WebApiServer.Models.Client" Multiplicity="1" />
+          <End Role="Party" Type="Хранилище WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="client_owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Party__client_pa__08EA5793">
+          <End Role="Client" Type="Хранилище WebApiServer.Models.Client" Multiplicity="0..1" />
+          <End Role="Party" Type="Хранилище WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="client_partner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Party__victory_c__0AD2A005">
+          <End Role="Client" Type="Хранилище WebApiServer.Models.Client" Multiplicity="0..1" />
+          <End Role="Party" Type="Хранилище WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="victory_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Step__party_id__108B795B">
+          <End Role="Party" Type="Хранилище WebApiServer.Models.Party" Multiplicity="1" />
+          <End Role="Step" Type="Хранилище WebApiServer.Models.Step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Step">
+              <PropertyRef Name="party_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebApiServer.Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AppHarborDB" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="WebApiServer.Models.Client" />
+          <EntitySet Name="Party" EntityType="WebApiServer.Models.Party" />
+          <EntitySet Name="Step" EntityType="WebApiServer.Models.Step" />
+          <AssociationSet Name="FK__Party__client_ow__07F6335A" Association="WebApiServer.Models.FK__Party__client_ow__07F6335A">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Party__client_pa__08EA5793" Association="WebApiServer.Models.FK__Party__client_pa__08EA5793">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Party__victory_c__0AD2A005" Association="WebApiServer.Models.FK__Party__victory_c__0AD2A005">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Step__party_id__108B795B" Association="WebApiServer.Models.FK__Step__party_id__108B795B">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="Step" EntitySet="Step" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Party" Relationship="WebApiServer.Models.FK__Party__client_ow__07F6335A" FromRole="Client" ToRole="Party" />
+          <NavigationProperty Name="Party1" Relationship="WebApiServer.Models.FK__Party__client_pa__08EA5793" FromRole="Client" ToRole="Party" />
+          <NavigationProperty Name="Party2" Relationship="WebApiServer.Models.FK__Party__victory_c__0AD2A005" FromRole="Client" ToRole="Party" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="client_owner" Type="Int64" Nullable="false" />
+          <Property Name="client_partner" Type="Int64" />
+          <Property Name="owner_color" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+          <Property Name="victory_client" Type="Int64" />
+          <Property Name="is_finished" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="WebApiServer.Models.FK__Party__client_ow__07F6335A" FromRole="Party" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="WebApiServer.Models.FK__Party__client_pa__08EA5793" FromRole="Party" ToRole="Client" />
+          <NavigationProperty Name="Client2" Relationship="WebApiServer.Models.FK__Party__victory_c__0AD2A005" FromRole="Party" ToRole="Client" />
+          <NavigationProperty Name="Step" Relationship="WebApiServer.Models.FK__Step__party_id__108B795B" FromRole="Party" ToRole="Step" />
+        </EntityType>
+        <EntityType Name="Step">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="start_cell" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="dest_cell" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="true" />
+          <Property Name="party_id" Type="Int64" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Party" Relationship="WebApiServer.Models.FK__Step__party_id__108B795B" FromRole="Step" ToRole="Party" />
+        </EntityType>
+        <Association Name="FK__Party__client_ow__07F6335A">
+          <End Role="Client" Type="WebApiServer.Models.Client" Multiplicity="1" />
+          <End Role="Party" Type="WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="client_owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Party__client_pa__08EA5793">
+          <End Role="Client" Type="WebApiServer.Models.Client" Multiplicity="0..1" />
+          <End Role="Party" Type="WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="client_partner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Party__victory_c__0AD2A005">
+          <End Role="Client" Type="WebApiServer.Models.Client" Multiplicity="0..1" />
+          <End Role="Party" Type="WebApiServer.Models.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="victory_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Step__party_id__108B795B">
+          <End Role="Party" Type="WebApiServer.Models.Party" Multiplicity="1" />
+          <End Role="Step" Type="WebApiServer.Models.Step" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Step">
+              <PropertyRef Name="party_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище WebApiServerModelsContainer" CdmEntityContainer="AppHarborDB">
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="WebApiServer.Models.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Party">
+            <EntityTypeMapping TypeName="WebApiServer.Models.Party">
+              <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="client_owner" ColumnName="client_owner" />
+                <ScalarProperty Name="client_partner" ColumnName="client_partner" />
+                <ScalarProperty Name="owner_color" ColumnName="owner_color" />
+                <ScalarProperty Name="victory_client" ColumnName="victory_client" />
+                <ScalarProperty Name="is_finished" ColumnName="is_finished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Step">
+            <EntityTypeMapping TypeName="WebApiServer.Models.Step">
+              <MappingFragment StoreEntitySet="Step">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="start_cell" ColumnName="start_cell" />
+                <ScalarProperty Name="dest_cell" ColumnName="dest_cell" />
+                <ScalarProperty Name="party_id" ColumnName="party_id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

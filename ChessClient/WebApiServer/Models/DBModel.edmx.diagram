@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdb664d3c872458eac976da3299148bf" Name="Диаграмма1">
+        <EntityTypeShape EntityType="WebApiServer.Models.Client" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApiServer.Models.Party" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApiServer.Models.Step" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="WebApiServer.Models.FK__Party__client_ow__07F6335A" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApiServer.Models.FK__Party__client_pa__08EA5793" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApiServer.Models.FK__Party__victory_c__0AD2A005" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApiServer.Models.FK__Step__party_id__108B795B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

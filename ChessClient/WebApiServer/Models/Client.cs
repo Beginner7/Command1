@@ -12,14 +12,21 @@ namespace WebApiServer.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Step
+    public partial class Client
     {
-        public int id { get; set; }
-        public string start_cell { get; set; }
-        public string dest_cell { get; set; }
-        public long party_id { get; set; }
-        public System.DateTime time { get; set; }
+        public Client()
+        {
+            this.Party = new HashSet<Party>();
+            this.Party1 = new HashSet<Party>();
+            this.Party2 = new HashSet<Party>();
+        }
     
-        public virtual Party Party { get; set; }
+        public long id { get; set; }
+        public string login { get; set; }
+        public string password { get; set; }
+    
+        public virtual ICollection<Party> Party { get; set; }
+        public virtual ICollection<Party> Party1 { get; set; }
+        public virtual ICollection<Party> Party2 { get; set; }
     }
 }

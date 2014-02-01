@@ -8,7 +8,7 @@ namespace ChessClient
 {
     public class User: IUser
     {
-        public User(UInt64 id)
+        public User(Int64 id)
         {
             this.Id = id;
         }
@@ -50,7 +50,7 @@ namespace ChessClient
         }
 
 
-        public UInt64 Id { get; set; }
+        public Int64 Id { get; private set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public enum Color

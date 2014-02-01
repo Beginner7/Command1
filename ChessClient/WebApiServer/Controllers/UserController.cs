@@ -13,32 +13,54 @@ namespace WebApiServer.Controllers
     public class UserController : ApiController
     {
         [HttpGet]
-        public HttpResponseMessage GetUserNameById(UInt64 id)
+        public HttpResponseMessage GetUserNameById(Int64 id)
         {
+            
             //TODO:implementation here
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(string), "TestUser "+id);
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User),Models.User.GetUserName(id));
         }
         [HttpPut]
         public HttpResponseMessage CreateUser([FromBody] User user)
         {
-            var result = DBRequest();
-
-            //return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user); ;
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(string), result.ToString());
+            try
+            {
+                user.Create();
+            }
+            catch (InvalidOperationException e)
+            {
+                return new JsonHttpResponseMessage(HttpStatusCode.InternalServerError, typeof(string), e.Message);
+            }
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user);
         }
         [HttpPost]
         public HttpResponseMessage Login([FromBody] UserLogInData user)
         {
             //TODO:implementation here
-
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(UInt64), 45878); ;
+            Int64 userId;
+            try
+            {
+                userId=Models.User.login(user).Id;
+            }
+            catch (ArgumentException e)
+            {
+                return new JsonHttpResponseMessage(HttpStatusCode.InternalServerError, typeof(string), e.Message);
+            }
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(Int64), userId); 
         }
         [HttpPost]
         public HttpResponseMessage ChangeUser([FromBody] User user, [FromUri]UInt64 id)
         {
             //TODO:implementation here
-
-            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), new User{Id=1,Login = "fg",Password = "rr"});
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return new JsonHttpResponseMessage(HttpStatusCode.OK, typeof(User), user);
         }
 
         private SqlDataReader DBRequest()

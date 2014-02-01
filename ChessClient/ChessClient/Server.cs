@@ -46,7 +46,7 @@ namespace ChessClient
             var response = Client.PostAsync("api/user/", content).Result;
             if (response.IsSuccessStatusCode)
             {
-                return new User(Jss.Deserialize<UInt64>(response.Content.ReadAsStringAsync().Result));
+                return new User(Jss.Deserialize<Int64>(response.Content.ReadAsStringAsync().Result));
             }
             
             throw new Exception("No such user or bad login/password");
@@ -56,7 +56,7 @@ namespace ChessClient
         {
             // Запрос на создание новой записи в таблице Client
             // В случае успеха - автоматический логин пользователя
-            User usr = new User{ Id = 000, Login = login, Password = psw};
+            User usr = new User{ Login = login, Password = psw};
             HttpContent content = new ByteArrayContent(Encoder.GetBytes(Jss.Serialize(usr)));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             System.Net.ServicePointManager.Expect100Continue = false;
